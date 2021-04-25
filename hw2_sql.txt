@@ -1,0 +1,40 @@
+1. sudo apt install mysql-server
+banga@banga-H87-D3H:~$ mysql -V
+mysql  Ver 8.0.23-0ubuntu0.20.04.1 for Linux on x86_64 ((Ubuntu))
+banga@banga-H87-D3H:~$ mysqld -V
+/usr/sbin/mysqld  Ver 8.0.23-0ubuntu0.20.04.1 for Linux on x86_64 ((Ubuntu))
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '***';
+mysql> FLUSH PRIVILEGES;
+banga@banga-H87-D3H:~$ mysql -u root -p
+banga@banga-H87-D3H:~$ gedit .my.cnf
+banga@banga-H87-D3H:~$ mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+
+2. CREATE DATABASE example;
+mysql> CREATE TABLE users (id INT, name TEXT);
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_example |
++-------------------+
+| users             |
++-------------------+
+1 row in set (0.00 sec)
+
+3. banga@banga-H87-D3H:~/Документы/geek/mysql$ mysqldump example > ex.sql
+mysql> CREATE BASE sample;
+banga@banga-H87-D3H:~/Документы/geek/mysql$ mysql sample < ex.sql
+banga@banga-H87-D3H:~/Документы/geek/mysql$ mysql sample < ex.sql
+banga@banga-H87-D3H:~/Документы/geek/mysql$ mysql sample
+mysql> SHOW TABLES;
++------------------+
+| Tables_in_sample |
++------------------+
+| users            |
++------------------+
+1 row in set (0.00 sec)
+
+
+4. banga@banga-H87-D3H:~/Документы/geek/mysql$ mysqldump --where="true limit 100" mysql help_keyword > hw2.sql
